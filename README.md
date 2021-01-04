@@ -1,7 +1,7 @@
 # DungeoNes
 **DungeoNes** is a game prototype developed for **NES with ASM 6502**. You can compile the source code with **NESASM3**. I'm using some .bat file to compile and run the emulator directly. 
 
-![GitHub Logo](https://i.ibb.co/V9MttHX/baq-Wy8y-CCcajd-P-8.gif)
+![](gameplay.gif)
 
 ![GitHub Logo](https://i.ibb.co/hLdCjDB/Ec-Yyaj6-Xs-AABzhx.png)
 ![GitHub Logo](https://i.ibb.co/C5CN8sY/Efd-O-Tw-Xg-AAFyz0.png)
