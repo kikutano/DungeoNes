@@ -1,4 +1,4 @@
-; C:\Work\Dev\NesDev\RogueMeLikeANes\main.asm
+; C:\Work\Nesdev\DungeoNes\main.asm
 WaitForNMI                       = $805F
 unload_items_on_level            = $99A7
 update_on_grid_sprite_an         = $8361
