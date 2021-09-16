@@ -40,7 +40,7 @@ enemies_stats:
 
 level_0_room_0_enemies:
   .db CELL_EN_BAT
-  .db CELL_EN_BAT
+  .db CELL_EN_SMILE
   .db CELL_EN_SMILE
 level_0_room_1_enemies:
   .db CELL_EN_NONE

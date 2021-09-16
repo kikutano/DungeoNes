@@ -44,14 +44,12 @@ gui_init_hp_player_stats:
     sta $2006
 
     ldx #$00
-    .loop: 
-
+    .loop:
         lda gui_hp_text_letters, x
         sta $2007
         inx
         cpx #$0A
         bne .loop
-
     rts
 
 ;:::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -66,13 +64,11 @@ gui_init_mp_player_stats:
 
     ldx #$00
     .loop: 
-
         lda gui_mp_text_letters, x
         sta $2007
         inx
         cpx #$0A
         bne .loop
-
     rts
 
 ;:::::::::::::::::::::::::::::::::::::::::::::::::::::

@@ -30,11 +30,9 @@ update_enemy_ai:
 ;:::::::::::::::::::::::::::::::::::::::::
 ; update_ai_thiking_time
 ;:::::::::::::::::::::::::::::::::::::::::
-
 update_ai_thiking_time:
-    
     lda TS_TICKING_TICKS
-    cmp #$20                ; <- THINKING SPEED
+    cmp #$1D                ; <- THINKING SPEED
     beq .think_time_passed
 
     inc TS_TICKING_TICKS

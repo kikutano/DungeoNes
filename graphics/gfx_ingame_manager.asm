@@ -191,11 +191,9 @@ update_shadow_on_grid:
 update_jump_translation:
     ldy #$00
 .loop:
-    
     ldx AN_JUMP_COUNT
     lda jump_params, x
     sta TEMP_A_0
-
     ;Y
     lda [GFX_SPRITE_TRANS_ADDR], y
     clc
@@ -204,7 +202,6 @@ update_jump_translation:
     iny 
     iny
     iny 
-
     ;X
     lda [GFX_SPRITE_TRANS_ADDR], y
     clc
@@ -218,7 +215,6 @@ update_jump_translation:
     inc AN_JUMP_COUNT 
 
     jsr update_shadow_on_grid
-
     rts
 
 ;:::::::::::::::::::::::::::::::::::::::::
@@ -267,7 +263,6 @@ update_meta_sprites_translation:
     jmp .exit
 
 .update_translation:
-    
     inc GFX_SPRITE_TRANS_COUNT
 
     lda GFX_SPRITE_TRANS_DIREC

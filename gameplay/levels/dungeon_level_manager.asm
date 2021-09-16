@@ -44,7 +44,7 @@ load_dungeon_level_background:
     inc ADDR_HIGH            
     dex                      
     bne .load_background_loop
-    
+
 .load_palettes:
   lda $2002             
   lda #$3F
@@ -73,6 +73,16 @@ load_dungeon_level_background:
   inx                   
   cpx #$40            
   bne .load_attribute_loop
+
+;:::::::::::::::::::::::::::::::::::::::::::::::::::::
+; show_game_version_on_bg (todo: Remove from here!)
+;:::::::::::::::::::::::::::::::::::::::::::::::::::::
+.show_game_version_on_bg:
+  macro_draw_tile_on_bg #$2B, #$7A, #$00
+  macro_draw_tile_on_bg #$2B, #$7B, #$27
+  macro_draw_tile_on_bg #$2B, #$7C, #$01
+  macro_draw_tile_on_bg #$2B, #$7D, #$27
+  macro_draw_tile_on_bg #$2B, #$7E, #$00
 
   rts 
 

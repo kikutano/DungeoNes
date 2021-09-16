@@ -24,7 +24,6 @@ m_dec_by .macro
 ;TAG: OTTIMIZZABILE
 
 macro_draw_metatile_on_bg .macro
-
   lda $2002
   lda \1
   sta $2006
@@ -46,5 +45,14 @@ macro_draw_metatile_on_bg .macro
   sta $2007
   lda \8
   sta $2007
+  .endm
 
+macro_draw_tile_on_bg .macro
+  lda $2002             
+  lda \1
+  sta $2006             
+  lda \2
+  sta $2006
+  lda \3
+  sta $2007
   .endm
