@@ -47,6 +47,7 @@ WaitForNMI:       ;Allow NMI to complete one pass before Starting Main Loop agai
   .include "./gameplay/gameplay_update.asm"
   .include "./gameplay/combat_system/combat_system_stats.asm"
   .include "./gameplay/combat_system/combat_system.asm"
+  .include "./gameplay/combat_system/combat_system_drop_system.asm"
   .include "./gameplay/controls/gameplay_player_controls.asm"
   .include "./gameplay/controls/pawn_controls.asm"
   .include "./gameplay/turns/gameplay_turn_manager.asm"

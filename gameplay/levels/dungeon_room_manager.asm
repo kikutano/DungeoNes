@@ -598,16 +598,3 @@ unload_items_on_level:
         bne .loop
 
     rts
-
-;:::::::::::::::::::::::::::::::::::::::::::::::
-; put_item_sprite_on_cell
-; CELL_CONTAINER: Sprite reference
-; CELL_TO_POINT: The cell to point on grid
-;:::::::::::::::::::::::::::::::::::::::::::::::
-put_item_sprite_on_cell:
-    lda #$16
-    sta CELL_CONTAINER
-    lda #$13
-    sta CELL_TO_POINT
-    jsr load_item
-    rts

@@ -34,5 +34,11 @@ gameplay_main_update:
 .update_move_player_turn:    
     jsr gp_update_player_controls
 
+;:::::::::::::::::::::::::::::::::::::::::::::::
+; Update the drop of object after enemy is 
+; killed by the player
+;:::::::::::::::::::::::::::::::::::::::::::::::
+    jsr update_generate_random_drop
+
 .exit:
     rts
