@@ -7,7 +7,7 @@ RAM_PLAYER              = $0220
 RAM_ENEMY_0             = $0230
 RAM_ENEMY_1             = $0240
 RAM_ENEMY_2             = $0250
-RAM_ROOM_KEY            = $0260
+RAM_ITEM_0              = $0260
 ;-- OAM end 
 
 ;-- $0400-$07FF Arrays and less-often-accessed global variables
@@ -121,6 +121,12 @@ ENEMY_2_CELL_INDEX      = $0602
 ;>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 AN_SPRITES_ARRAY       = $0660 ; L'array di 6 caselle ( due per ogni sprite ) con gli sprites 
 
+;::::::::::::::::::::::::::::::::::::::::::::::::::::
+; ROOM RANDOMIZE
+;::::::::::::::::::::::::::::::::::::::::::::::::::::
+ROOM_RANDOM_SELECTOR_COUNT = $0670 ; Counter of room selector
+ROOM_RANDOM_SIZE           = $02
+
 AN_INDEX_HIT  = $06
 AN_INDEX_PUFF = $26
 AN_INDEX_DEAD = $16
@@ -146,7 +152,7 @@ CELL_PLAYER         = $99
 CELL_ENEMY_0        = $13
 CELL_ENEMY_1        = $14
 CELL_ENEMY_2        = $15
-CELL_KEY            = $16
+CELL_POTION         = $16
 
 ;::::::::::::::::::::::::::::::::::::::::::::::::::::
 ; Enemies Id

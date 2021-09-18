@@ -14,8 +14,8 @@ on_player_movement_done:
   beq .door_2_selected
   cmp #MAP_CELL_DOOR_LEFT
   beq .door_3_selected
-  cmp #CELL_KEY
-  beq .perform_pick_key
+  cmp #CELL_POTION
+  beq .perform_pick_potion
 
   jmp .continue
 
@@ -39,7 +39,7 @@ on_player_movement_done:
   lda #MAP_CELL_DOOR_RIGHT
   jmp .change_room   
 
-.perform_pick_key:
+.perform_pick_potion:
   inc $0680                       ; Picking della chiave
   jmp .continue
 

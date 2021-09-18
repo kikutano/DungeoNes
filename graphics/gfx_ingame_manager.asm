@@ -1198,7 +1198,6 @@ flip_sprite_pawn_to_right:
 ; put_sprite_on_grid
 ;:::::::::::::::::::::::::::::::::::::::::
 put_sprite_on_grid:
-
     ;for X
     lda CELL_TO_POINT
     and #7                      ; A % 8

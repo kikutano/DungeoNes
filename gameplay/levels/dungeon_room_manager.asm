@@ -1,12 +1,33 @@
 ;dungeon_room_manager
 
+;:::::::::::::::::::::::::::::::::::::::::
+; update_random_room_selector
+;:::::::::::::::::::::::::::::::::::::::::
+update_random_room_selector:
+    lda ROOM_RANDOM_SELECTOR_COUNT
+    cmp #ROOM_RANDOM_SIZE
+    beq .reset_room_selector
+
+    inc ROOM_RANDOM_SELECTOR_COUNT
+    jmp .exit
+
+.reset_room_selector:
+    lda #$00
+    sta ROOM_RANDOM_SELECTOR_COUNT
+
+    lda #$01
+    sta ROOM_RANDOM_SELECTOR_COUNT
+.exit:
+    rts
+
 ;:::::::::::::::::::::::::::::::::::::::::::::::::::::
 ; init_room_specs_on_memory
 ; Inizializza tutti i puntatori in memoria per il 
 ; caricamento dinamico dei livelli.
 ;:::::::::::::::::::::::::::::::::::::::::::::::::::::
 init_room_specs_on_memory:
-  lda CURRENT_ROOM_COUNTER
+  ;lda CURRENT_ROOM_COUNTER
+  lda ROOM_RANDOM_SELECTOR_COUNT
   asl a
   tax
   
@@ -23,10 +44,10 @@ init_room_specs_on_memory:
   sta ROOM_ENEMIES_TO_LOAD_ADDR + 1 
   
   ;doors
-  lda level_0_doors_links     + 0, x
-  sta ROOM_DOORS_TO_LOAD_ADDR + 0
-  lda level_0_doors_links     + 1, x
-  sta ROOM_DOORS_TO_LOAD_ADDR + 1
+  ;lda level_0_doors_links     + 0, x
+  ;sta ROOM_DOORS_TO_LOAD_ADDR + 0
+  ;lda level_0_doors_links     + 1, x
+  ;sta ROOM_DOORS_TO_LOAD_ADDR + 1
   rts
 
 ;:::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -346,7 +367,6 @@ remove_pawn_from_grid:
 ; load_lvl_items
 ;::::::::::::::::::::::::::::::::::::
 load_lvl_items:
-
     lda #low( RAM_ENEMY_0 )
     sta PTR_RAM_ITEM + 0
     lda #high( RAM_ENEMY_0 )
@@ -371,7 +391,6 @@ load_lvl_items:
         iny
         cpy #$40
         bne .loop
-
     rts
 
 ;::::::::::::::::::::::::::::::::::::
@@ -425,7 +444,7 @@ load_next_item_on_map:
     sta [PTR_RAM_ITEM], y
     
     lda CELL_CONTAINER
-    cmp #CELL_KEY
+    cmp #CELL_POTION
     beq .skip_assign_enemy_ram
 
     lda CELL_TO_POINT
@@ -457,8 +476,8 @@ load_item:
     beq .load_enemy_1
     cmp #CELL_ENEMY_2
     beq .load_enemy_2 
-    cmp #CELL_KEY
-    beq .load_key
+    cmp #CELL_POTION
+    beq .load_item_potion
 
     jmp .exit
 
@@ -529,15 +548,15 @@ load_item:
     jsr load_next_item_on_map
     jmp .exit
 
-.load_key:
-    lda #low( RAM_ROOM_KEY )
+.load_item_potion:
+    lda #low( RAM_ITEM_0 )
     sta PTR_RAM_ITEM + 0
-    lda #high( RAM_ROOM_KEY )
+    lda #high( RAM_ITEM_0 )
     sta PTR_RAM_ITEM + 1
 
-    lda #low( sprites_key )
+    lda #low( sprites_potion )
     sta PTR_ITEM_TO_LOAD + 0
-    lda #high( sprites_key )
+    lda #high( sprites_potion )
     sta PTR_ITEM_TO_LOAD + 1
     jsr load_next_item_on_map
     jmp .exit
@@ -578,4 +597,17 @@ unload_items_on_level:
         cpx #$30
         bne .loop
 
+    rts
+
+;:::::::::::::::::::::::::::::::::::::::::::::::
+; put_item_sprite_on_cell
+; CELL_CONTAINER: Sprite reference
+; CELL_TO_POINT: The cell to point on grid
+;:::::::::::::::::::::::::::::::::::::::::::::::
+put_item_sprite_on_cell:
+    lda #$16
+    sta CELL_CONTAINER
+    lda #$13
+    sta CELL_TO_POINT
+    jsr load_item
     rts

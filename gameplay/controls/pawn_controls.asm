@@ -204,7 +204,7 @@ perform_move_or_attack_next_cell:
     beq .perform_walk
     cmp #MAP_CELL_DOOR_RIGHT
     beq .perform_walk
-    cmp #CELL_KEY
+    cmp #CELL_POTION
     beq .perform_walk
     cmp #CELL_ENEMY_0
     beq .perform_attack

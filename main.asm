@@ -27,7 +27,8 @@
   jsr load_and_init_dungeon ; Todo: Togliere da qui
 
 ;; MAIN LOOP
-MainLoop:  
+MainLoop:
+  jsr update_random_room_selector
   jsr gameplay_main_update
 
   lda #READY       ;frameready is now set to 1. This will Allow NMI to Draw To Screen
