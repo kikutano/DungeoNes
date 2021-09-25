@@ -164,7 +164,6 @@ attack_stats_showed_done:
 ;perform_dir_button_pressed
 ;:::::::::::::::::::::::::::::::::::::::::
 perform_dir_button_pressed:
-
     lda CELL_INDICATOR_ON
     cmp #$00
     beq .perform_move_pawn

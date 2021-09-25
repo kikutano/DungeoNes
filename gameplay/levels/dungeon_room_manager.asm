@@ -396,13 +396,7 @@ load_lvl_items:
 ;::::::::::::::::::::::::::::::::::::
 ; load_next_item_on_map
 ;::::::::::::::::::::::::::::::::::::
-load_next_item_on_map:
-
-    ; sprites_bat_idle_0:
-    ; .db $04, $05, $14, $15, %00000011
-    ; sprites_bat_idle_1:
-    ; .db $24, $25, $34, $35
-    
+load_next_item_on_map:    
     ;up_left_sprite
     ldy #$04                    ; Carico le proprietà della palette che è alla 4°
     lda [PTR_ITEM_TO_LOAD], y   ; posizione dell'array
