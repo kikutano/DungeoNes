@@ -30,9 +30,40 @@ set_drop_random_item_available:
 ; CELL_TO_POINT: The cell to point on grid
 ;:::::::::::::::::::::::::::::::::::::::::::::::
 put_random_item_on_grid:
-    lda #$16
+    lda #CELL_POTION
     sta CELL_CONTAINER
-    lda LAST_ENEMy_KILLED_CELL
+    lda LAST_ENEMY_KILLED_CELL
     sta CELL_TO_POINT
+
+    lda LAST_ENEMY_KILLED_NUM
+    cmp #$00
+    beq .set_ram_item_0
+    cmp #$01
+    beq .set_ram_item_1
+    cmp #$02
+    beq .set_ram_item_2
+
+.set_ram_item_0:
+    lda #low( RAM_ITEM_0 )
+    sta PTR_RAM_ITEM + 0
+    lda #high( RAM_ITEM_0 )
+    sta PTR_RAM_ITEM + 1
+    jmp .load
+
+.set_ram_item_1:
+    lda #low( RAM_ITEM_1 )
+    sta PTR_RAM_ITEM + 0
+    lda #high( RAM_ITEM_1 )
+    sta PTR_RAM_ITEM + 1
+    jmp .load
+
+.set_ram_item_2:
+    lda #low( RAM_ITEM_2 )
+    sta PTR_RAM_ITEM + 0
+    lda #high( RAM_ITEM_2 )
+    sta PTR_RAM_ITEM + 1
+    jmp .load
+    
+.load    
     jsr load_item
     rts

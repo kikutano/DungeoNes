@@ -441,7 +441,9 @@ cs_compute_if_pawn_is_dead:
 
 .set_en_0_dead:
     lda CELLS_PAWNS_OCCS_ARRAY + 1
-    sta LAST_ENEMy_KILLED_CELL          ; save the cell where enemy is killed
+    sta LAST_ENEMY_KILLED_CELL          ; save the cell where enemy is killed
+    lda #$00
+    sta LAST_ENEMY_KILLED_NUM           ; Enemy 0 killed
     jsr remove_pawn_from_grid
     jsr set_pawn_an_en_0_dead
     jsr set_sprite_an_dead
@@ -451,7 +453,9 @@ cs_compute_if_pawn_is_dead:
 
 .set_en_1_dead:
     lda CELLS_PAWNS_OCCS_ARRAY + 2
-    sta LAST_ENEMy_KILLED_CELL          ; save the cell where enemy is killed
+    sta LAST_ENEMY_KILLED_CELL          ; save the cell where enemy is killed
+    lda #$01
+    sta LAST_ENEMY_KILLED_NUM           ; Enemy 1 killed
     jsr remove_pawn_from_grid
     jsr set_pawn_an_en_1_dead
     jsr set_sprite_an_dead
@@ -460,7 +464,9 @@ cs_compute_if_pawn_is_dead:
 
 .set_en_2_dead:
     lda CELLS_PAWNS_OCCS_ARRAY + 3
-    sta LAST_ENEMy_KILLED_CELL          ; save the cell where enemy is killed
+    sta LAST_ENEMY_KILLED_CELL          ; save the cell where enemy is killed
+    lda #$02
+    sta LAST_ENEMY_KILLED_NUM           ; Enemy 2 killed
     jsr remove_pawn_from_grid
     jsr set_pawn_an_en_2_dead
     jsr set_sprite_an_dead

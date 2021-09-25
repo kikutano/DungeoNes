@@ -128,7 +128,6 @@ update_enemy_ai_2:
     jmp .exit
 
 .can_turn:
-
     jsr update_ai_thiking_time
 
     lda TS_TICKING_TICKS

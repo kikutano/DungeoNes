@@ -8,6 +8,8 @@ RAM_ENEMY_0             = $0230
 RAM_ENEMY_1             = $0240
 RAM_ENEMY_2             = $0250
 RAM_ITEM_0              = $0260
+RAM_ITEM_1              = $0270
+RAM_ITEM_2              = $0280
 ;-- OAM end 
 
 ;-- $0400-$07FF Arrays and less-often-accessed global variables
@@ -68,7 +70,8 @@ PAWN_RECIEVER_STATS_DEF     = $051F
 CURRENT_SENDER_STATS_PTR    = $0520 ; Chi sta muovendo?
 CURRENT_RECIEVER_STATS_PTR  = $0521 ; Chi sta ricevendo l'attacco/magia/item?
 DROP_RANDOM_ITEM_AVAILABLE  = $0522
-LAST_ENEMy_KILLED_CELL      = $0523
+LAST_ENEMY_KILLED_CELL      = $0523 ; Cell position of last enemy killed
+LAST_ENEMY_KILLED_NUM       = $0524 ; enemy 0, 1 or 2
 
 ENEMIES_STR_SET_EASY    = $00
 ENEMIES_STR_SET_NORMAL  = $01

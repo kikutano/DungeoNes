@@ -549,11 +549,6 @@ load_item:
     jmp .exit
 
 .load_item_potion:
-    lda #low( RAM_ITEM_0 )
-    sta PTR_RAM_ITEM + 0
-    lda #high( RAM_ITEM_0 )
-    sta PTR_RAM_ITEM + 1
-
     lda #low( sprites_potion )
     sta PTR_ITEM_TO_LOAD + 0
     lda #high( sprites_potion )
