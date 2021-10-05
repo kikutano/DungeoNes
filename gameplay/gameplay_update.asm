@@ -8,6 +8,7 @@ gameplay_main_update:
     jmp .update_gameover_state      ; No, perform Game Over                 
 
 .update_gameplay:
+    jsr update_generate_random_drop ; Update the generation of random objects dropped by enemies
     jsr update_pawn_animation
     jsr update_attack_bonus
     jsr update_attack_bonus_enemy
@@ -33,12 +34,6 @@ gameplay_main_update:
 
 .update_move_player_turn:    
     jsr gp_update_player_controls
-
-;:::::::::::::::::::::::::::::::::::::::::::::::
-; Update the drop of object after enemy is 
-; killed by the player
-;:::::::::::::::::::::::::::::::::::::::::::::::
-    jsr update_generate_random_drop
 
 .exit:
     rts

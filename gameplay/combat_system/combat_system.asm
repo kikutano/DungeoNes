@@ -407,9 +407,7 @@ cs_pawn_hp_after_attack:
 
 ;::::::::::::::::::::::::::::::::::::::::::::::::
 ; cs_compute_if_pawn_is_dead
-;       * AGGIORNAMENTO PAWN DOPO UCCISIONE * 
 ;::::::::::::::::::::::::::::::::::::::::::::::::
-
 cs_compute_if_pawn_is_dead:
     lda CURRENT_RECIEVER_STATS_PTR
     cmp #CELL_ENEMY_0

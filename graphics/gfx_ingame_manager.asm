@@ -867,7 +867,7 @@ update_sprite_hit_count:
 
     jmp .exit
 
-    ;::: STOP :::
+;::: STOP :::
 
 .update_stop_count:
     inc AN_TICKS_COUNT
