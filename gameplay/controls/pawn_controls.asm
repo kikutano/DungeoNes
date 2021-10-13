@@ -59,7 +59,6 @@ move_pawn_right:
     jmp .exit
 
 .can_move:
-
     lda #$01
     sta AN_JUMP_DIR_FACTOR
 
@@ -204,7 +203,7 @@ perform_move_or_attack_next_cell:
     cmp #MAP_CELL_DOOR_RIGHT
     beq .perform_walk
     cmp #CELL_POTION
-    beq .perform_walk
+    beq .perform_get_potion
     cmp #CELL_ENEMY_0
     beq .perform_attack
     cmp #CELL_ENEMY_1
@@ -229,6 +228,10 @@ perform_move_or_attack_next_cell:
     sta CELL_SELECTED
     jsr on_perform_brawl_attack
     jsr disable_input
+    jmp .exit
+
+.perform_get_potion:
+    inc $0308
 
 .exit:
     rts
